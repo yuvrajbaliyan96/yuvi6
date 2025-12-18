@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+}
+
+/* Pages */
+.page{
+    width:100%;
+    height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.active{
+    display:flex;
+}
+
+/* Buttons */
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    margin:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Heading */
+h1{
+    font-size:40px;
+    color:#000;
+}
+
+/* Falling roses */
+.rose{
+    position:absolute;
+    top:-50px;
+    font-size:24px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(110vh);}
+}
+
+/* Note box */
+.note{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    width:80%;
+    max-width:500px;
+    color:#333;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <button onclick="openPage2()"><hr>🎁 Open Surprise 🎁<hr></button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1> 🎂<br>HAPPY BIRTHDAY BBU<br>🎂</h1>
+    <button onclick="openPage3()">💌 Read Message</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+    <div class="note">
+        <p>
+        <br><br><hr>
+    Happy Birthday, my love 🫶🏻🌹<hr>
+You are the reason my days are brighter and my heart is happier.🫀<hr> I'm so lucky to have you in my life.🫂<hr> May all your dreams come true🙏<hr> may I always be there to celebrate every birthday with you🩷 🌸  
+            <hr><br>
+            Always keep smiling 😊<hr>
+        </p>
+
+        <button onclick="openWebsite()">CLICK HERE BBY</button>
+    </div>
+</div>
+
+<script>
+function openPage2(){
+    page1.classList.remove("active");
+    page2.classList.add("active");
+    startRoses();
+}
+
+function openPage3(){
+    page2.classList.remove("active");
+    page3.classList.add("active");
+}
+
+function startRoses(){
+    for(let i=0;i<30;i++){
+        let rose=document.createElement("div");
+        rose.className="rose";
+        rose.innerHTML="🌹";
+        rose.style.left=Math.random()*100+"vw";
+        rose.style.animationDuration=(3+Math.random()*5)+"s";
+        document.body.appendChild(rose);
+    }
+}
+
+function openWebsite(){
+    window.open("https://gifft.me/o/d/8din9d9mtsztrc1wzfsj7zwe");
+}
+</script>
+
+</body>
+</html>
